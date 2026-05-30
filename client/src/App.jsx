@@ -30,7 +30,7 @@ function App() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "https://ai-career-copilot-backend-bo5z.onrender.com/api/auth/signup",
         formData
       );
 
@@ -46,7 +46,7 @@ function App() {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      "https://ai-career-copilot-backend-bo5z.onrender.com/api/auth/login",
       {
         email: formData.email,
         password: formData.password,
@@ -81,7 +81,7 @@ function App() {
 
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/profile",
+      "https://ai-career-copilot-backend-bo5z.onrender.com/api/profile",
       {
         headers: {
           Authorization: `Bearer ${token}`, // ✅ MUST BE EXACT
@@ -115,7 +115,7 @@ function App() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/resume/upload",
+        "https://ai-career-copilot-backend-bo5z.onrender.com/api/resume/upload",
         data,
         {
           headers: {
@@ -307,7 +307,7 @@ function App() {
                     Improvement Plan
                   </h3>
                   <ul className="list-disc ml-5 text-gray-300">
-                    {analysis.aiResult.missing?.map((item, i) => (
+                    {analysis.aiResult.improvements?.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
                   </ul>
