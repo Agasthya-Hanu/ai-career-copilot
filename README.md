@@ -306,34 +306,6 @@ Suggest Improvements
       │
       ▼
 Display Results
-```
-
----
-
-## Technology Architecture
-
-Frontend:
-
-* React.js
-* Vite
-* Axios
-* Tailwind CSS
-
-Backend:
-
-* Node.js
-* Express.js
-* JWT Authentication
-* Multer
-* PDF-Parse
-* Mammoth
-
-Deployment:
-
-* Vercel (Frontend)
-* Render (Backend)
-* GitHub (Version Control)
-
 ---
 
 ## 👨‍💻 Author
