@@ -208,6 +208,132 @@ npm run dev
 * PDF Report Download
 * User Dashboard
 
+
+
+
+# 🏗 System Architecture
+
+## High-Level Architecture
+
+```text
+                    ┌─────────────────┐
+                    │      User       │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ React Frontend  │
+                    │ (Vercel)        │
+                    └────────┬────────┘
+                             │ Axios API Calls
+                             ▼
+                    ┌─────────────────┐
+                    │ Express Backend │
+                    │ (Render)        │
+                    └────────┬────────┘
+                             │
+        ┌────────────────────┼────────────────────┐
+        ▼                    ▼                    ▼
+ ┌────────────┐      ┌────────────┐      ┌────────────┐
+ │ Auth Routes│      │Profile API │      │Resume API  │
+ │ JWT Login  │      │User Data   │      │File Upload │
+ └────────────┘      └────────────┘      └─────┬──────┘
+                                                │
+                                                ▼
+                                      ┌─────────────────┐
+                                      │ Resume Parser   │
+                                      │ PDF / DOCX/TXT  │
+                                      └────────┬────────┘
+                                               │
+                                               ▼
+                                      ┌─────────────────┐
+                                      │ Skill Detection │
+                                      │ Domain Analysis │
+                                      └────────┬────────┘
+                                               │
+                                               ▼
+                                      ┌─────────────────┐
+                                      │ AI Analyzer     │
+                                      │ ATS Score       │
+                                      │ Role Suggestion │
+                                      │ Skill Gaps      │
+                                      └────────┬────────┘
+                                               │
+                                               ▼
+                                      ┌─────────────────┐
+                                      │ Analysis Result │
+                                      └────────┬────────┘
+                                               │
+                                               ▼
+                                      ┌─────────────────┐
+                                      │ React Frontend  │
+                                      │ Display Report  │
+                                      └─────────────────┘
+```
+
+---
+
+## Resume Analysis Workflow
+
+```text
+Upload Resume
+      │
+      ▼
+Extract Text
+(PDF/DOCX/TXT)
+      │
+      ▼
+Detect Skills
+      │
+      ▼
+Identify Domain
+(CSE/ECE/Mechanical/Civil/etc.)
+      │
+      ▼
+Generate ATS Score
+      │
+      ▼
+Recommend Career Role
+      │
+      ▼
+Identify Strengths
+      │
+      ▼
+Identify Weaknesses
+      │
+      ▼
+Suggest Improvements
+      │
+      ▼
+Display Results
+```
+
+---
+
+## Technology Architecture
+
+Frontend:
+
+* React.js
+* Vite
+* Axios
+* Tailwind CSS
+
+Backend:
+
+* Node.js
+* Express.js
+* JWT Authentication
+* Multer
+* PDF-Parse
+* Mammoth
+
+Deployment:
+
+* Vercel (Frontend)
+* Render (Backend)
+* GitHub (Version Control)
+
 ---
 
 ## 👨‍💻 Author
